@@ -32,3 +32,24 @@ final currentActivities = [
     image: 'assets/images/stack.png',
   )
 ];
+
+final recentActivities = [
+  RecentActivity(
+    time: '24 hours ago',
+    price: 'N20,000',
+    description: 'Fuel',
+    image: 'assets/images/stack.png',
+  ),
+  RecentActivity(
+    time: '24 hours ago',
+    price: 'N5,000',
+    description: 'Food',
+    image: 'assets/images/stack.png',
+  ),
+  RecentActivity(
+    time: '24 hours ago',
+    price: 'N5,000',
+    description: 'Food',
+    image: 'assets/images/stack.png',
+  ),
+];

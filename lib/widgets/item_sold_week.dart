@@ -7,7 +7,7 @@ class ItemSoldWeek extends StatelessWidget {
   ItemSoldWeek(this.items);
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 150.0,
       child: ListView.builder(
           padding: EdgeInsets.only(left: 10.0),

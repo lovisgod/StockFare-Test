@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/screens/expenses.dart';
+import 'package:shop_app/screens/income.dart';
 import 'package:shop_app/widgets/drawer.dart';
 
 class ExpenseIncome extends StatefulWidget {
@@ -35,8 +37,8 @@ class _ExpenseIncomeState extends State<ExpenseIncome> {
         ),
         body: TabBarView(
           children: [
-            Icon(Icons.directions_car),
-            Icon(Icons.directions_transit),
+            Expenses(),
+            Income(),
           ],
         ),
       ),
