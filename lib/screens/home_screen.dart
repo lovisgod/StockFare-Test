@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/data/activities.dart';
 import 'package:shop_app/data/activity.dart';
 import 'package:shop_app/data/item_sold.dart';
+import 'package:shop_app/screens/expense_income_screen.dart';
 import 'package:shop_app/widgets/drawer.dart';
 import 'package:shop_app/widgets/item_sold_week.dart';
 
@@ -122,15 +123,16 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Container(
-                      width: 300.0,
-                      child: Text(
-                        'It is a long established fact that a reader will be distracted by the readable',
-                        style: TextStyle(
-                            fontSize: 10.0,
-                            color: Colors.white,
-                            letterSpacing: 1.2),
-                        textAlign: TextAlign.left,
+                    Expanded(
+                      child: Container(
+                        child: Text(
+                          'It is a long established fact that a reader will be distracted by the readable',
+                          style: TextStyle(
+                              fontSize: 10.0,
+                              color: Colors.white,
+                              letterSpacing: 1.2),
+                          textAlign: TextAlign.left,
+                        ),
                       ),
                     ),
                     Image(
@@ -175,15 +177,16 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Container(
-                      width: 300.0,
-                      child: Text(
-                        'It is a long established fact that a reader will be distracted by the readable',
-                        style: TextStyle(
-                            fontSize: 10.0,
-                            color: Colors.white,
-                            letterSpacing: 1.2),
-                        textAlign: TextAlign.left,
+                    Expanded(
+                      child: Container(
+                        child: Text(
+                          'It is a long established fact that a reader will be distracted by the readable',
+                          style: TextStyle(
+                              fontSize: 10.0,
+                              color: Colors.white,
+                              letterSpacing: 1.2),
+                          textAlign: TextAlign.left,
+                        ),
                       ),
                     ),
                     Image(
@@ -194,57 +197,62 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            height: 120.0,
-            width: MediaQuery.of(context).size.width,
-            margin: EdgeInsets.only(top: 10.0, right: 15.0, left: 15.0),
-            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5.0),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  expenseColor,
-                  expenseColor.withOpacity(0.9),
-                  expenseColor.withOpacity(0.9)
-                ],
-                stops: [0.1, 0.5, 0.7],
-              ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  'Expense and Income',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 1.2,
-                    fontSize: 18.0,
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Container(
-                      width: 300.0,
-                      child: Text(
-                        'It is a long established fact that a reader will be distracted by the readable',
-                        style: TextStyle(
-                            fontSize: 10.0,
-                            color: Colors.white,
-                            letterSpacing: 1.2),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                    Image(
-                      image: AssetImage("assets/images/right_arrow.png"),
-                    )
+          GestureDetector(
+            onTap: () => Navigator.push(
+                context, MaterialPageRoute(builder: (_) => ExpenseIncome())),
+            child: Container(
+              height: 120.0,
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsets.only(top: 10.0, right: 15.0, left: 15.0),
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5.0),
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    expenseColor,
+                    expenseColor.withOpacity(0.9),
+                    expenseColor.withOpacity(0.9)
                   ],
-                )
-              ],
+                  stops: [0.1, 0.5, 0.7],
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'Expense and Income',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 1.2,
+                      fontSize: 18.0,
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Expanded(
+                        child: Container(
+                          child: Text(
+                            'It is a long established fact that a reader will be distracted by the readable',
+                            style: TextStyle(
+                                fontSize: 10.0,
+                                color: Colors.white,
+                                letterSpacing: 1.2),
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                      ),
+                      Image(
+                        image: AssetImage("assets/images/right_arrow.png"),
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
           Padding(
