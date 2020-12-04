@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:shop_app/data/Colors.dart';
 import 'package:shop_app/data/activity.dart';
+import 'package:shop_app/screens/add_bottom_sheet.dart';
 import 'package:shop_app/widgets/recent_activites.dart';
 
 class Expenses extends StatefulWidget {
@@ -14,7 +16,7 @@ class _ExpensesState extends State<Expenses> {
   Color weekColor = Colors.black;
   Color monthColor = Colors.black;
 
-  Color todaybgColor = Color(0xffE5E5E5);
+  Color todaybgColor = shopGrey;
   Color weekbgColor = Color(0xffF6F6F6);
   Color monthngColor = Color(0xffF6F6F6);
 
@@ -22,7 +24,13 @@ class _ExpensesState extends State<Expenses> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+              context: context,
+              builder: (BuildContext bc) {
+                return AddBottomSheet('Record Expense');
+              });
+        },
         child: Icon(Icons.add),
         backgroundColor: Colors.black,
       ),
@@ -64,7 +72,7 @@ class _ExpensesState extends State<Expenses> {
                                     .withOpacity(0.5);
                                 monthColor = Colors.black;
                                 weekColor = Colors.black;
-                                todaybgColor = Color(0xffE5E5E5);
+                                todaybgColor = shopGrey;
                                 monthngColor = Color(0xffF6F6F6);
                                 weekbgColor = Color(0xffF6F6F6);
                               });
@@ -104,7 +112,7 @@ class _ExpensesState extends State<Expenses> {
                                 weekColor = Theme.of(context)
                                     .primaryColor
                                     .withOpacity(0.5);
-                                weekbgColor = Color(0xffE5E5E5);
+                                weekbgColor = shopGrey;
                                 monthngColor = Color(0xffF6F6F6);
                                 todaybgColor = Color(0xffF6F6F6);
                               });
@@ -142,7 +150,7 @@ class _ExpensesState extends State<Expenses> {
                                   .primaryColor
                                   .withOpacity(0.5);
                               weekColor = Colors.black;
-                              monthngColor = Color(0xffE5E5E5);
+                              monthngColor = shopGrey;
                               weekbgColor = Color(0xffF6F6F6);
                               todaybgColor = Color(0xffF6F6F6);
                             });
@@ -269,8 +277,7 @@ class _ExpensesState extends State<Expenses> {
             color: Colors.black,
           ),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30.0),
-              color: Color(0xffE5E5E5)),
+              borderRadius: BorderRadius.circular(30.0), color: shopGrey),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 10.0),

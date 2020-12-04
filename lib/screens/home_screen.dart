@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_app/data/Colors.dart';
 import 'package:shop_app/data/activities.dart';
 import 'package:shop_app/data/activity.dart';
 import 'package:shop_app/data/item_sold.dart';
@@ -7,7 +8,13 @@ import 'package:shop_app/screens/expense_income_screen.dart';
 import 'package:shop_app/widgets/drawer.dart';
 import 'package:shop_app/widgets/item_sold_week.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int pageNo = 0;
   @override
   Widget build(BuildContext context) {
     Color checkOutColor = Color(0xff3C6B56);
@@ -27,50 +34,47 @@ class HomeScreen extends StatelessWidget {
       ),
       drawer: StockDrawer(),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
+        onTap: (index) {
+          setState(() {
+            pageNo = index;
+          });
+        },
+        currentIndex: pageNo,
         showUnselectedLabels: true,
         elevation: 8.0,
-        selectedItemColor: Theme.of(context).primaryColor,
+        selectedItemColor: Colors.redAccent,
         unselectedItemColor: Colors.black,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: ImageIcon(
               AssetImage('assets/images/dashboard.png'),
-              color: Colors.black,
             ),
             title: Text(
               'Dashboard',
-              style: TextStyle(color: Colors.black),
             ),
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(
               AssetImage('assets/images/show.png'),
-              color: Colors.black,
             ),
             title: Text(
               'Inventory',
-              style: TextStyle(color: Colors.black),
             ),
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(
               AssetImage('assets/images/stack.png'),
-              color: Colors.black,
             ),
             title: Text(
               'Sales',
-              style: TextStyle(color: Colors.black),
             ),
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(
               AssetImage('assets/images/graph.png'),
-              color: Colors.black,
             ),
             title: Text(
               'Analytics',
-              style: TextStyle(color: Colors.black),
             ),
           ),
         ],
@@ -314,7 +318,7 @@ class HomeScreen extends StatelessWidget {
             color: Theme.of(context).primaryColor.withOpacity(0.5),
           ),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30.0), color: Colors.grey),
+              borderRadius: BorderRadius.circular(30.0), color: shopGrey),
         ),
         title: Text(
           activity.description,
